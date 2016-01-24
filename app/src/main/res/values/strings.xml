@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AnimationPlayground</string>
+    <string name="error_example_missing_activity">Example is missing an activity to launch!</string>
+</resources>
