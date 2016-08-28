@@ -1,60 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/top_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is text above the collapsing header"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
-    <!-- The frame layout below is the view that technically will be animated. We will adjust the
-         bottom value of it to animate between the height of the first and second child views and
-         crossfade them using an alpha animation. -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/top_view"
         android:background="@android:color/darker_gray"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/header_view_collapsed"
-            android:layout_width="wrap_content"
+            android:id="@+id/header_title_collapsed"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This is header view when collapsed"
-            android:textSize="16sp" />
+            android:textSize="16sp"/>
 
-        <LinearLayout
-            android:id="@+id/header_view_expanded"
+        <TextView
+            android:id="@+id/header_title_expanded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
-            android:orientation="vertical"
-            android:visibility="invisible">
+            android:text="This is the expanded header view 1"
+            android:visibility="gone"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="This is the expanded header view 1" />
+        <TextView
+            android:id="@+id/header_text_expanded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Some other text in expanded view"
+            android:visibility="gone"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Some other text in expanded view" />
-        </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/bottom_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/header_container"
         android:background="@android:color/holo_blue_dark"
-        android:text="This line is below the header" />
-</RelativeLayout>
+        android:text="This line is below the header"/>
+
+</LinearLayout>
